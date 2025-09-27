@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 type Props = {
-  speed?: number 
+  speed?: number
 }
 
 const people = [
@@ -74,68 +74,59 @@ export default function TestimonialsRow({ speed = 120 }: Props) {
 
   return (
     <section className="relative mx-auto max-w-6xl px-4 pb-14">
- 
 
-  <div
-    ref={containerRef}
-    className="overflow-hidden"
-    aria-label="Testimonials carousel"
-    role="region"
-  >
-    <div ref={trackRef} className="flex gap-6 py-2" role="list" aria-live="off">
-      {people.map((p) => (
-        <article
-          key={p.name}
-          role="listitem"
-          className="relative min-w-[280px] max-w-sm shrink-0 rounded-3xl bg-[#0b0a0a]/30 p-6"
-        >
-          <div className="pointer-events-none absolute inset-0 rounded-3xl [background:radial-gradient(200px_200px_at_80%_20%,#1f5464/15,transparent_60%),radial-gradient(180px_180px_at_0%_100%,#5f82ff/8,transparent_60%)]" />
 
-          <div className="relative z-10 flex flex-col items-center text-center">
-            <Avatar className="h-[148px] w-[148px] object-contain">
-              <AvatarImage
-                src={p.avatar}
-                width={138}
-                height={138}
-                alt={`${p.name} avatar`}
+      <div
+        ref={containerRef}
+        className="overflow-hidden"
+        aria-label="Testimonials carousel"
+        role="region"
+      >
+        <div ref={trackRef} className="flex gap-6 py-2" role="list" aria-live="off">
+          {people.map((p) => (
+            <article
+              key={p.name}
+              role="listitem"
+              className="relative min-w-[280px] max-w-sm shrink-0 rounded-3xl bg-[#0b0a0a]/30 p-6"
+            >
+              <div className="pointer-events-none absolute inset-0 rounded-3xl [background:radial-gradient(200px_200px_at_80%_20%,#1f5464/15,transparent_60%),radial-gradient(180px_180px_at_0%_100%,#5f82ff/8,transparent_60%)]" />
+
+              <div className="relative z-10 flex flex-col items-center text-center">
+                <img
+                  src={p.avatar}
+                  className="w-[148px] h-[148px] rounded-[50%]"
+                  alt={`${p.name} avatar`}
+                />
+
+                <p className="mt-3 text-sm font-semibold">{p.name}</p>
+                <p className="text-xs text-[#e6fcff]/70">Lorem ipsum dolor</p>
+
+              </div>
+
+              <div className="relative z-10 mt-6 space-y-2">
+                <p className="text-sm font-semibold">
+                  Lorem ipsum dolor sit amet consectetur.
+                </p>
+                <p className="text-xs leading-6 text-[#e6fcff]/80">
+                  Lorem ipsum dolor sit amet consectetur. Ipsum eu aenean dignissim
+                  sagittis malesuada consectetur. Suspendisse lectus in nulla
+                  consectetur elementum.
+                </p>
+
+
+              </div>
+              <img
+                src="/Ellipse 47.png"
+                alt="Decorative"
+                className="absolute bottom-0 left-0 w-24 h-24 object-contain pointer-events-none"
               />
-              <AvatarFallback>
-                {p.name
-                  .split(" ")
-                  .map((s) => s[0])
-                  .join("")
-                  .slice(0, 2)}
-              </AvatarFallback>
-            </Avatar>
-            <p className="mt-3 text-sm font-semibold">{p.name}</p>
-            <p className="text-xs text-[#e6fcff]/70">Lorem ipsum dolor</p>
-            
-          </div>
 
-          <div className="relative z-10 mt-6 space-y-2">
-            <p className="text-sm font-semibold">
-              Lorem ipsum dolor sit amet consectetur.
-            </p>
-            <p className="text-xs leading-6 text-[#e6fcff]/80">
-              Lorem ipsum dolor sit amet consectetur. Ipsum eu aenean dignissim
-              sagittis malesuada consectetur. Suspendisse lectus in nulla
-              consectetur elementum.
-            </p>
+            </article>
 
-            
-          </div>
-           <img
-    src="/Ellipse 47.png"
-    alt="Decorative"
-    className="absolute bottom-0 left-0 w-24 h-24 object-contain pointer-events-none"
-  />
-          
-        </article>
-        
-      ))}
-    </div>
-  </div>
-</section>
+          ))}
+        </div>
+      </div>
+    </section >
 
   )
 }

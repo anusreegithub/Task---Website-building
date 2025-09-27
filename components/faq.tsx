@@ -19,7 +19,7 @@ export default function FAQ() {
         return res.json();
       })
       .then((data) => {
-        setFaqs(data);
+        setFaqs(data.faq);
       })
       .catch((err) => {
         console.error("Failed to fetch FAQs:", err);
@@ -36,7 +36,7 @@ export default function FAQ() {
         </p>
 
         <div className="mt-8 bg-[#5E767F] p-3 rounded-2xl">
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion type="single" collapsible className="w-full cursor-pointer">
             {faqs.map((q, i) => (
               <AccordionItem
                 key={q.question}
